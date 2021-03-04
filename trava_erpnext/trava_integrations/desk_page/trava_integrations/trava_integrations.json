@@ -1,0 +1,30 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Marketplace",
+   "links": "[\n    {\n        \"description\": \"Wildberries settings\",\n        \"label\": \"Wildberries Settings\",\n        \"name\": \"WB Settings\",\n        \"type\": \"doctype\"\n    }\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-01-31 12:32:39.261371",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends": "Integrations",
+ "extends_another_page": 1,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Trava Integrations",
+ "modified": "2021-01-31 12:35:07.294717",
+ "modified_by": "Administrator",
+ "module": "Trava integrations",
+ "name": "Trava Integrations",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": []
+}

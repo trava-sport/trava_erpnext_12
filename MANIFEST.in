@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include trava_erpnext *.css
+recursive-include trava_erpnext *.csv
+recursive-include trava_erpnext *.html
+recursive-include trava_erpnext *.ico
+recursive-include trava_erpnext *.js
+recursive-include trava_erpnext *.json
+recursive-include trava_erpnext *.md
+recursive-include trava_erpnext *.png
+recursive-include trava_erpnext *.py
+recursive-include trava_erpnext *.svg
+recursive-include trava_erpnext *.txt
+recursive-exclude trava_erpnext *.pyc

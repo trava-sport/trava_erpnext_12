@@ -1,0 +1,30 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "\u041f\u0435\u0447\u0430\u0442\u044c \u044d\u0442\u0438\u043a\u0435\u0442\u043e\u043a",
+   "links": "[\n    {\n        \"description\": \"\u041f\u0435\u0447\u0430\u0442\u044c \u044d\u0442\u0438\u043a\u0435\u0442\u043e\u043a.\",\n        \"label\": \"\u041f\u0435\u0447\u0430\u0442\u044c \u044d\u0442\u0438\u043a\u0435\u0442\u043e\u043a\",\n        \"name\": \"Label Printing\",\n        \"onboard\": 1,\n        \"type\": \"doctype\"\n    }\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-01-29 11:15:25.747353",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends": "Selling",
+ "extends_another_page": 1,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Label Printing",
+ "modified": "2021-01-29 11:17:51.312172",
+ "modified_by": "Administrator",
+ "module": "Print",
+ "name": "Label Printing",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": []
+}

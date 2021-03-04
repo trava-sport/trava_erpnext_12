@@ -1,0 +1,30 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Integrations Settings",
+   "links": "[\n\t{\n\t    \"type\": \"doctype\",\n\t\t\"name\": \"WB Settings\",\n\t\t\"description\": \"Connect Wildberries with ERPNext\"\n\t}\n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-01-31 12:39:06.797420",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends": "Settings",
+ "extends_another_page": 1,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "WB Integrations Settings",
+ "modified": "2021-01-31 12:41:29.306946",
+ "modified_by": "Administrator",
+ "module": "Trava integrations",
+ "name": "WB Integrations Settings",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": []
+}

@@ -1,0 +1,257 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "creation": "2020-12-28 23:44:31.862035",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "number",
+  "date",
+  "last_change_date",
+  "last_change_date_and_time",
+  "supplier_article",
+  "tech_size",
+  "barcode",
+  "quantity",
+  "total_price",
+  "discount_percent",
+  "warehouse_name",
+  "oblast",
+  "income_id",
+  "odid",
+  "nmid",
+  "subject",
+  "category",
+  "brand",
+  "is_cancel",
+  "cancel_dt"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Order number",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Date orders",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "last_change_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date  updated in WB",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "last_change_date_and_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Date and time updated in WB",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "supplier_article",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Your article",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "tech_size",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Size",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "barcode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Barcode",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "total_price",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Price up to the agreed discount / promo/spp",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "discount_percent",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "The approved final discount",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "warehouse_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shipment warehouse",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "oblast",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Area",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "income_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Delivery number",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "odid",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unique ID of the order item",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "nmid",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "WB code",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Brand",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "is_cancel",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "indicates whether the order was canceled",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "cancel_dt",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Date of order cancellation",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  }
+ ],
+ "links": [],
+ "modified": "2021-02-12 00:05:21.451124",
+ "modified_by": "Administrator",
+ "module": "WB Selling",
+ "name": "WB Orders",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1
+}

@@ -1,0 +1,236 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "creation": "2020-12-28 20:55:08.976009",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "last_change_date",
+  "last_change_date_and_time",
+  "supplier_article",
+  "tech_size",
+  "barcode",
+  "quantity",
+  "is_supply",
+  "is_realization",
+  "quantity_full",
+  "quantity_not_in_orders",
+  "warehouse_name",
+  "in_way_to_client",
+  "in_way_from_client",
+  "nmid",
+  "subject",
+  "category",
+  "days_on_site",
+  "brand",
+  "sccode",
+  "cost_storage"
+ ],
+ "fields": [
+  {
+   "fieldname": "last_change_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Update date in WB",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "supplier_article",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Your article",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "tech_size",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Size",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Barcode",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity available for sale",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "is_supply",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Supply contract",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "is_realization",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sales agreement",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "quantity_full",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity full",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "quantity_not_in_orders",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Qty not in order",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "warehouse_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Warehouse name",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "in_way_to_client",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "On the way to the client (pieces)",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "in_way_from_client",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "On the way from the client (pieces)",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "nmid",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "WB code",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "days_on_site",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Number of days on the site",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Brand",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "sccode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contract code",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "columns": 2,
+   "fieldname": "cost_storage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "\u0421\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u044c \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u0432 \u0434\u0435\u043d\u044c",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_change_date_and_time",
+   "fieldtype": "Datetime",
+   "label": "Update date and time in WB",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2021-02-16 18:20:59.604519",
+ "modified_by": "Administrator",
+ "module": "WB Selling",
+ "name": "WB Stocks",
+ "nsm_parent_field": "parent_wb_stocks",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1
+}

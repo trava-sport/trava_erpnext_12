@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2021-01-23 11:51:04.264232",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "customer_item_code",
+  "col_break1",
+  "item_name",
+  "image_section",
+  "image",
+  "image_view",
+  "planning_section",
+  "actual_qty",
+  "quantity_and_rate",
+  "qty"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "columns": 3,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Item Code",
+   "oldfieldname": "item_code",
+   "oldfieldtype": "Link",
+   "options": "Item",
+   "print_width": "150px",
+   "reqd": 1,
+   "width": "150px"
+  },
+  {
+   "fieldname": "customer_item_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Customer's Item Code",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Item Name",
+   "oldfieldname": "item_name",
+   "oldfieldtype": "Data",
+   "print_hide": 1,
+   "print_width": "150",
+   "reqd": 1,
+   "width": "150"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "image_section",
+   "fieldtype": "Section Break",
+   "label": "Image"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "label": "Image"
+  },
+  {
+   "fieldname": "image_view",
+   "fieldtype": "Image",
+   "label": "Image View",
+   "options": "image",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "planning_section",
+   "fieldtype": "Section Break",
+   "label": "Planning"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "actual_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Qty",
+   "no_copy": 1,
+   "print_hide": 1,
+   "print_width": "70px",
+   "read_only": 1,
+   "width": "70px"
+  },
+  {
+   "fieldname": "quantity_and_rate",
+   "fieldtype": "Section Break",
+   "label": "Quantity and Rate"
+  },
+  {
+   "columns": 1,
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "oldfieldname": "qty",
+   "oldfieldtype": "Currency",
+   "print_width": "100px",
+   "reqd": 1,
+   "width": "100px"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2021-01-24 12:47:43.411100",
+ "modified_by": "Administrator",
+ "module": "Print",
+ "name": "Label Printing Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

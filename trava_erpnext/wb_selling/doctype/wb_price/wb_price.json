@@ -1,0 +1,306 @@
+{
+ "actions": [],
+ "creation": "2021-01-08 03:11:07.600237",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "brand",
+  "subject",
+  "collection",
+  "supplier_article",
+  "nomenclature",
+  "last_barcode",
+  "number_days_site",
+  "unmarketable",
+  "date_unmarketable",
+  "turnover_rate",
+  "remainder_goods",
+  "current_retail_price",
+  "new_retail_price",
+  "current_discount_site",
+  "recommended_discount",
+  "agreed_discount",
+  "current_promo_code_discount",
+  "new_promo_code_discount",
+  "current_price_discounts",
+  "current_price_disc_promo_code",
+  "new_price_discounts",
+  "new_price_disc_promo_code",
+  "standard_price",
+  "current_net_profit",
+  "new_net_profit",
+  "number_of_sales",
+  "remains"
+ ],
+ "fields": [
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Brand",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "collection",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Collection",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "supplier_article",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Suppliers article",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "nomenclature",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Nomenclature (Code 1C)",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "last_barcode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last barcode",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "number_days_site",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Number of days on the site",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "unmarketable",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unmarketable",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "date_unmarketable",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of appearance of the illiquid",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "remainder_goods",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "The remainder of the goods (units)",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_retail_price",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current retail price(before discount)",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "new_retail_price",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "New retail price (before discount)",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_discount_site",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current discount on the site,%",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "recommended_discount",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Recommended discount,%",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "agreed_discount",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "The agreed discount,%",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_promo_code_discount",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current promo code discount,%",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "new_promo_code_discount",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "New promo code discount,%",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_price_discounts",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current price with discounts",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_price_disc_promo_code",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current price with discounts and promo codes",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "new_price_discounts",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "New price with discounts",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "new_price_disc_promo_code",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "New price with discounts and promo codes",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "standard_price",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Cost",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_net_profit",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current net profit",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "new_net_profit",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "New net profit",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "number_of_sales",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Number of sales",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "remains",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Remains",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "turnover_rate",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Turnover rate",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-01-16 15:07:03.446012",
+ "modified_by": "Administrator",
+ "module": "WB Selling",
+ "name": "WB Price",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1
+}

@@ -1,0 +1,30 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "\u041f\u0440\u043e\u0434\u0430\u0436\u0438 \u043d\u0430 Wildberries",
+   "links": "[\n    {\n        \"dependencies\": [\n            \"WB Price\"\n        ],\n        \"doctype\": \"WB Price\",\n        \"is_query_report\": true,\n        \"label\": \"\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u0446\u0435\u043d \u0438 \u0441\u043a\u0438\u0434\u043e\u043a\",\n        \"name\": \"WB Price\",\n        \"type\": \"report\"\n    },\n    {\n        \"dependencies\": [\n            \"WB Sales by Sales\"\n        ],\n        \"doctype\": \"WB Sales by Sales\",\n        \"is_query_report\": true,\n        \"label\": \"\u0417\u0430\u043a\u0443\u043f\u043a\u0430 \u0442\u043e\u0432\u0430\u0440\u0430 \u0434\u043b\u044f \u043f\u043e\u0441\u0442\u0430\u0432\u043a\u0438 \u043d\u0430 \u0412\u0411\",\n        \"name\": \"WB Purchase\",\n        \"type\": \"report\"\n    },\n    {\n        \"dependencies\": [\n            \"WB Sales by Sales\"\n        ],\n        \"doctype\": \"WB Sales by Sales\",\n        \"is_query_report\": true,\n        \"label\": \"\u041e\u0442\u0447\u0435\u0442 \u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u0445 \u043f\u043e \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438\",\n        \"name\": \"WB Sales by Sales Report\",\n        \"type\": \"report\"\n    },\n    {\n        \"dependencies\": [\n            \"WB Sales by Sales\"\n        ],\n        \"doctype\": \"WB Sales by Sales\",\n        \"is_query_report\": true,\n        \"label\": \"\u0421\u0432\u043e\u0434\u043d\u044b\u0439 \u043e\u0442\u0447\u0435\u0442\",\n        \"name\": \"WB Summary Report\",\n        \"type\": \"report\"\n    }\n    \n]"
+  }
+ ],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2021-01-28 22:44:13.572595",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends": "Selling",
+ "extends_another_page": 1,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Wildberries Selling",
+ "modified": "2021-01-29 11:09:51.233482",
+ "modified_by": "Administrator",
+ "module": "WB Selling",
+ "name": "Wildberries Selling",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": []
+}
