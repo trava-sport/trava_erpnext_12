@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 from . import __version__ as app_version
 
 app_name = "trava_erpnext"
-app_title = "Trava ERPNext"
-app_publisher = "Marin"
-app_description = "Trava ERPNext"
+app_title = "Trava Erpnext"
+app_publisher = "trava"
+app_description = "Trava Erpnext System"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "belyerin@ya.ru"
@@ -38,11 +38,11 @@ fixtures = ['Report', 'Role Profile', 'Role', 'Custom Field', 'Custom Script', '
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-#doctype_js = {
-#	"Sales Invoice" : "public/js/sales_invoice.js",
-#	"Sales Order" : "public/js/sales_order.js",
-#	"Packing Slip" : "public/js/packing_slip.js"
-#}
+doctype_js = {
+	"Sales Invoice" : "public/js/sales_invoice.js",
+	"Sales Order" : "public/js/sales_order.js",
+	"Packing Slip" : "public/js/packing_slip.js"
+}
 
 # Home Pages
 # ----------
@@ -92,10 +92,10 @@ fixtures = ['Report', 'Role Profile', 'Role', 'Custom Field', 'Custom Script', '
 # override_doctype_class = {
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
-#override_doctype_class = {
- #	"Sales Invoice": "trava_erpnext.overrides.sales_invoice.CustomSalesInvoice",
-#	"Packing Slip": "trava_erpnext.overrides.packing_slip.CustomPackingSlip"
- #}
+override_doctype_class = {
+ 	"Sales Invoice": "trava_erpnext.overrides.sales_invoice.CustomSalesInvoice",
+	"Packing Slip": "trava_erpnext.overrides.packing_slip.CustomPackingSlip"
+ }
 
 # Document Events
 # ---------------
@@ -112,7 +112,26 @@ fixtures = ['Report', 'Role Profile', 'Role', 'Custom Field', 'Custom Script', '
 # Scheduled Tasks
 # ---------------
 
-
+scheduler_events = {
+	"cron": {
+		"2/30 * * * *": [
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_orders_daily",
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_sales_daily"
+		],
+		"40 6,11,16,23 * * *": [
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_stocks",
+		],
+		"10 3 4 * *": [
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_orders_monthly",
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_sales_monthly",
+		],
+		"10 3 * * 2": [
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_sales_by_sales",
+		],
+		"10 5 * * 2": [
+			"trava_erpnext.sale_commission.doctype.commission_agent_report.commission_agent_report.schedule_create_report_commission_from_wb_sbs",
+		]
+	},
 # 	"all": [
 # 		"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_orders_daily"
 #		"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_sales_daily",
@@ -129,7 +148,7 @@ fixtures = ['Report', 'Role Profile', 'Role', 'Custom Field', 'Custom Script', '
 # 	"monthly": [
 # 		"trava_erpnext.tasks.monthly"
 # 	]
-
+}
 
 # Testing
 # -------
