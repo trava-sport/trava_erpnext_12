@@ -49,13 +49,8 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 
 					this.frm.add_custom_button(__('Pick List'), () => this.create_pick_list(), __('Create'));
 
-					const order_is_a_sale = ["Sales", "Shopping Cart"].indexOf(doc.order_type) !== -1;
-					const order_is_maintenance = ["Maintenance"].indexOf(doc.order_type) !== -1;
-					// order type has been customised then show all the action buttons
-					const order_is_a_custom_sale = ["Sales", "Shopping Cart", "Maintenance"].indexOf(doc.order_type) === -1;
-
 					// delivery note
-					if(flt(doc.per_delivered, 6) < 100 && (order_is_a_sale || order_is_a_custom_sale) && allow_delivery) {
+					if(flt(doc.per_delivered, 6) < 100 && ["Sales", "Shopping Cart"].indexOf(doc.order_type)!==-1 && allow_delivery) {
 						this.frm.add_custom_button(__('Delivery Note'), () => this.make_delivery_note_based_on_delivery_date(), __('Create'));
 						this.frm.add_custom_button(__('Work Order'), () => this.make_work_order(), __('Create'));
 					}
@@ -66,7 +61,8 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 					}
 
 					// material request
-					if(!doc.order_type || (order_is_a_sale || order_is_a_custom_sale) && flt(doc.per_delivered, 6) < 100) {
+					if(!doc.order_type || ["Sales", "Shopping Cart"].indexOf(doc.order_type)!==-1
+						&& flt(doc.per_delivered, 6) < 100) {
 						this.frm.add_custom_button(__('Material Request'), () => this.make_material_request(), __('Create'));
 						this.frm.add_custom_button(__('Request for Raw Materials'), () => this.make_raw_material_request(), __('Create'));
 					}
@@ -75,7 +71,8 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 						this.frm.add_custom_button(__('Purchase Order'), () => this.make_purchase_order(), __('Create'));
 
 					// maintenance
-					if(flt(doc.per_delivered, 2) < 100 && (order_is_maintenance || order_is_a_custom_sale)) {
+					if(flt(doc.per_delivered, 2) < 100 &&
+							["Sales", "Shopping Cart"].indexOf(doc.order_type)===-1) {
 						this.frm.add_custom_button(__('Maintenance Visit'), () => this.make_maintenance_visit(), __('Create'));
 						this.frm.add_custom_button(__('Maintenance Schedule'), () => this.make_maintenance_schedule(), __('Create'));
 					}
@@ -414,7 +411,7 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 	make_delivery_note: function() {
 		frappe.model.open_mapped_doc({
 			method: "erpnext.selling.doctype.sales_order.sales_order.make_delivery_note",
-			frm: me.frm
+			frm: this.frm
 		})
 	},
 
@@ -611,8 +608,7 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 						reference_doctype: me.frm.doctype,
 						reference_name: me.frm.docname,
 						content: __('Reason for hold: ')+data.reason_for_hold,
-						comment_email: frappe.session.user,
-						comment_by: frappe.session.user_fullname
+						comment_email: frappe.session.user
 					},
 					callback: function(r) {
 						if(!r.exc) {
@@ -643,7 +639,6 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 			}
 		});
 	}
-	
 });
 
 $.extend(cur_frm.cscript, new erpnext.selling.SalesOrderController({frm: cur_frm}));

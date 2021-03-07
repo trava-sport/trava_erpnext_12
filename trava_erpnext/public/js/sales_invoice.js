@@ -90,12 +90,6 @@ erpnext.accounts.SalesInvoiceController = trava_erpnext.selling.SellingCommissio
 				cur_frm.add_custom_button(__('Invoice Discounting'), function() {
 					cur_frm.events.create_invoice_discounting(cur_frm);
 				}, __('Create'));
-
-				if (doc.due_date < frappe.datetime.get_today()) {
-					cur_frm.add_custom_button(__('Dunning'), function() {
-						cur_frm.events.create_dunning(cur_frm);
-					}, __('Create'));
-				}
 			}
 
 			if (doc.docstatus === 1) {
@@ -276,7 +270,7 @@ erpnext.accounts.SalesInvoiceController = trava_erpnext.selling.SellingCommissio
 					"customer": this.frm.doc.customer
 				},
 				callback: function(r) {
-					if(r.message && r.message.length > 1) {
+					if(r.message && r.message.length) {
 						select_loyalty_program(me.frm, r.message);
 					}
 				}
@@ -345,7 +339,7 @@ erpnext.accounts.SalesInvoiceController = trava_erpnext.selling.SellingCommissio
 
 	set_dynamic_labels: function() {
 		this._super();
-		this.frm.events.hide_fields(this.frm)
+		this.hide_fields(this.frm.doc);
 	},
 
 	items_on_form_rendered: function() {
@@ -404,7 +398,7 @@ erpnext.accounts.SalesInvoiceController = trava_erpnext.selling.SellingCommissio
 							if(r.message && r.message.print_format) {
 								me.frm.pos_print_format = r.message.print_format;
 							}
-							me.frm.trigger("update_stock");
+							me.frm.script_manager.trigger("update_stock");
 							if(me.frm.doc.taxes_and_charges) {
 								me.frm.script_manager.trigger("taxes_and_charges");
 							}

@@ -13,7 +13,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -30,7 +29,6 @@
   "parenttype": null,
   "property": "options",
   "property_type": "Text",
-  "row_name": null,
   "value": "SUP-.YYYY.-"
  },
  {
@@ -47,7 +45,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -64,7 +61,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -81,7 +77,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -98,7 +93,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -115,7 +109,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -132,7 +125,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -149,7 +141,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -166,7 +157,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -183,7 +173,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -200,7 +189,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -217,7 +205,6 @@
   "parenttype": null,
   "property": "label",
   "property_type": "Data",
-  "row_name": null,
   "value": ""
  },
  {
@@ -234,7 +221,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -251,7 +237,6 @@
   "parenttype": null,
   "property": "reqd",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -268,7 +253,6 @@
   "parenttype": null,
   "property": "reqd",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -285,7 +269,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -302,7 +285,6 @@
   "parenttype": null,
   "property": "reqd",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -319,7 +301,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -336,7 +317,6 @@
   "parenttype": null,
   "property": "reqd",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -353,7 +333,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -370,7 +349,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -387,7 +365,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -404,7 +381,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -421,7 +397,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -438,7 +413,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -455,7 +429,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -472,7 +445,6 @@
   "parenttype": null,
   "property": "collapsible_depends_on",
   "property_type": "Code",
-  "row_name": null,
   "value": "is_stock_item"
  },
  {
@@ -489,7 +461,6 @@
   "parenttype": null,
   "property": "columns",
   "property_type": "Int",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -506,7 +477,6 @@
   "parenttype": null,
   "property": "columns",
   "property_type": "Int",
-  "row_name": null,
   "value": "3"
  },
  {
@@ -523,7 +493,6 @@
   "parenttype": null,
   "property": "reqd",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -540,7 +509,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -557,7 +525,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -574,7 +541,6 @@
   "parenttype": null,
   "property": "reqd",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -591,7 +557,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -608,7 +573,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -625,7 +589,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -642,7 +605,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -659,7 +621,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -676,7 +637,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -693,7 +653,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -710,7 +669,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -727,7 +685,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -744,7 +701,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -761,7 +717,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -778,7 +733,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -795,7 +749,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -812,7 +765,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -829,7 +781,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -846,7 +797,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -863,7 +813,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -880,7 +829,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -897,7 +845,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -914,7 +861,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -931,7 +877,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -948,7 +893,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -965,7 +909,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -982,7 +925,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -999,7 +941,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1016,7 +957,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1033,7 +973,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1050,7 +989,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1067,7 +1005,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1084,7 +1021,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1101,7 +1037,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1118,7 +1053,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1135,7 +1069,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1152,7 +1085,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1169,7 +1101,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1186,7 +1117,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1203,7 +1133,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1220,7 +1149,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1237,7 +1165,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1254,7 +1181,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1271,7 +1197,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1288,7 +1213,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1305,7 +1229,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1322,7 +1245,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1339,7 +1261,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1356,7 +1277,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1373,7 +1293,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1390,7 +1309,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1407,7 +1325,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1424,7 +1341,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1441,7 +1357,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1458,7 +1373,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1475,7 +1389,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1492,7 +1405,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1509,7 +1421,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1526,7 +1437,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "1"
  },
  {
@@ -1543,7 +1453,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1560,7 +1469,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1577,7 +1485,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1594,7 +1501,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1611,7 +1517,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1628,7 +1533,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1645,7 +1549,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1662,7 +1565,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1679,7 +1581,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1696,7 +1597,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1713,7 +1613,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1730,7 +1629,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1747,7 +1645,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1764,7 +1661,6 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1781,7 +1677,6 @@
   "parenttype": null,
   "property": "hidden",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
  },
  {
@@ -1798,7 +1693,38 @@
   "parenttype": null,
   "property": "print_hide",
   "property_type": "Check",
-  "row_name": null,
   "value": "0"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Sales Order",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "transaction_date",
+  "modified": "2021-03-07 23:22:43.961626",
+  "name": "Sales Order-transaction_date-bold",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "bold",
+  "property_type": "Check",
+  "value": "1"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Purchase Order",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "transaction_date",
+  "modified": "2021-03-07 23:23:55.329172",
+  "name": "Purchase Order-transaction_date-bold",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "bold",
+  "property_type": "Check",
+  "value": "1"
  }
 ]

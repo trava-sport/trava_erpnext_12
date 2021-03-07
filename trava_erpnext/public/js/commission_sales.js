@@ -89,11 +89,11 @@ trava_erpnext.selling.SellingCommission = erpnext.selling.SellingController.exte
 		let tax_count = this.frm.doc["taxes"] ? this.frm.doc["taxes"].length : 0;
 		let tax = this.frm.doc["taxes"];
 
-		frappe.db.get_value("WB Settings", {'name': 'WB Settings'}, "account_commission", (r) => {
+		frappe.db.get_value("WB Settings", {'name': 'WB Settings'}, ["account_commission", "enable_wb"], (r) => {
 			console.log(r)
 			console.log(r.account_commission)
 			me.frm.doc.wb_setting_commission = r.account_commission;
-			if (r.account_commission === null) {
+			if (r.account_commission === null && r.enable_wb === 1) {
 				frappe.throw(__("Пожалуйста, укажите комиссию по счету в настройках интеграции с Вайлдберриз."));
 			};
 		});
