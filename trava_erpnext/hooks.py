@@ -17,7 +17,7 @@ fixtures = ['Report', 'Role Profile', 'Role', 'Custom Field', 'Custom Script', '
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/trava_erpnext/css/trava_erpnext.css"
-# app_include_js = "/assets/trava_erpnext/js/trava_erpnext.js"
+# app_include_js = "assets/js/trava_erpnext.min.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/trava_erpnext/css/trava_erpnext.css"
@@ -161,6 +161,9 @@ scheduler_events = {
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "trava_erpnext.event.get_events"
 # }
+override_whitelisted_methods = {
+	"erpnext.selling.page.point_of_sale.point_of_sale.search_serial_or_batch_or_barcode_number": "trava_erpnext.overrides.point_of_sale.search_serial_or_batch_or_barcode_number"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
