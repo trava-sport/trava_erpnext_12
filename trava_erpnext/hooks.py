@@ -161,9 +161,9 @@ scheduler_events = {
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "trava_erpnext.event.get_events"
 # }
-override_whitelisted_methods = {
-	"erpnext.selling.page.point_of_sale.point_of_sale.search_serial_or_batch_or_barcode_number": "trava_erpnext.overrides.point_of_sale.search_serial_or_batch_or_barcode_number"
-}
+#override_whitelisted_methods = {
+#	"erpnext.selling.page.point_of_sale.point_of_sale.search_serial_or_batch_or_barcode_number": "trava_erpnext.overrides.point_of_sale.search_serial_or_batch_or_barcode_number"
+#}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

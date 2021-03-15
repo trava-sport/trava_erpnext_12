@@ -1,5 +1,4 @@
 {
- "actions": [],
  "allow_import": 1,
  "creation": "2020-12-29 10:57:02.952291",
  "doctype": "DocType",
@@ -68,6 +67,7 @@
    "width": "100px"
   },
   {
+   "bold": 1,
    "columns": 2,
    "fieldname": "rr_dt",
    "fieldtype": "Date",
@@ -171,7 +171,6 @@
    "columns": 2,
    "fieldname": "doc_type_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Document type",
    "print_hide": 1,
    "read_only": 1,
@@ -191,7 +190,6 @@
    "columns": 2,
    "fieldname": "nds",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "label": "VAT rate",
    "print_hide": 1,
    "read_only": 1,
@@ -427,9 +425,7 @@
    "read_only": 1
   }
  ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2021-02-12 00:01:24.088227",
+ "modified": "2021-03-15 19:55:41.558464",
  "modified_by": "Administrator",
  "module": "WB Selling",
  "name": "WB Sales by Sales",

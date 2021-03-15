@@ -1,1 +1,260 @@
-[]
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2021-03-05 16:57:27.026283",
+  "name": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "role_profile": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+  "roles": [
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Analytics"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Auditor"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Blogger"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Customer"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Dashboard Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Expense Approver"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Fleet Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Fulfillment User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "HR User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Inbox User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Item Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Knowledge Base Contributor"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Knowledge Base Editor"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Leave Approver"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "LMS User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Loan Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Maintenance Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Maintenance User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Newsletter Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Prepared Report User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Projects Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Projects User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Purchase Master Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Quality Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Report Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sales Master Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Script Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Stock User"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Support Team"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "System Manager"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Translator"
+   },
+   {
+    "parent": "\u0413\u0435\u043d. \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Website Manager"
+   }
+  ]
+ }
+]

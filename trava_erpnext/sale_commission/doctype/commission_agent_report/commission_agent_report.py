@@ -448,7 +448,7 @@ def get_report_items(date_from):
 		date_from += timedelta(days=1)
 
 	for rr_dt in date:
-		for data in frappe.get_all('WB Sales by Sales', filters={'rr_dt': rr_dt}):
+		for data in frappe.get_all('WB Sales by Sales', filters={'sale_dt': rr_dt}):
 			data = frappe.get_doc('WB Sales by Sales', data.name)
 
 			if data.supplier_oper_name in ['Логистика', 'Возврат']:
