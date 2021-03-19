@@ -39,9 +39,9 @@ def get_columns(filters):
 			"width": 100
 		},
 		{
-			"label": _("Barcode"),
+			"label": _("WB item code"),
 			"fieldtype": "Data",
-			"fieldname": "barcode",
+			"fieldname": "wb_item_code",
 			"width": 120
 		},
 		{
@@ -70,7 +70,7 @@ def get_data(filters):
 	sales_order_records = get_sales_order_details(filters)
 
 	for record in sales_order_records:
-		if not record.barcode:
+		if not record.wb_item_code:
 			purchase_goods = 0
 		else:
 			purchase_goods = purchase_formula(record, filters)
@@ -79,7 +79,7 @@ def get_data(filters):
 			"item_name": record.item_name,
 			"item_code": record.item_code,
 			"stock_uom": record.stock_uom,
-			"barcode": record.barcode,
+			"wb_item_code": record.wb_item_code,
 			"sales_qty": record.wb_sales_qty,
 			"remainder_qty": record.wb_stocks_qty,
 			"purchase_goods": purchase_goods
@@ -108,7 +108,7 @@ def get_coefficients_seasonality(record, filters):
 	period_delivery = str(months[data_delivery.month - 1]) + " " + str(data_delivery.year)
 
 	if period_purchase == period_delivery:
-		coefficients_seasonality = coefficients_seasonality(record, data_delivery)
+		coefficients_seasonality = get_coefficients_season(record, data_delivery)
 	else:
 		coefficients_seasonality_one = get_coefficients_season(record, data_delivery)
 		coefficients_seasonality_two = get_coefficients_season(record, date_next_purchase)
@@ -161,16 +161,15 @@ def get_sales_order_details(filters):
 		brand = "and item.brand = %s" %frappe.db.escape(filters.brand)
 
 	return frappe.db.sql("""
-		select item.item_code, item.stock_uom,
-		(select barcode from `tabItem Barcode` where parent = item.item_code) barcode,
+		select item.item_name, item.item_code, item.stock_uom, wb_item_code,
 		IFNULL((select SUM(wb_sales.quantity)
 			from `tabWB Sales` wb_sales
-			where wb_sales.barcode = (select barcode from `tabItem Barcode` where parent = item.item_code) 
+			where wb_sales.barcode in (select barcode from `tabItem Barcode` where parent = item.item_code) 
 			and wb_sales.date between {1} and {2}), 0) wb_sales_qty,
 		IFNULL((select SUM(wb_stocks.quantity)
 			from `tabWB Stocks` wb_stocks
-			where wb_stocks.barcode = (select barcode from `tabItem Barcode` where parent = item.item_code)
-			and wb_stocks.last_change_date = {1}), 0) wb_stocks_qty
+			where wb_stocks.barcode in (select barcode from `tabItem Barcode` where parent = item.item_code)
+			and wb_stocks.last_change_date = {2}), 0) wb_stocks_qty
 		from `tabItem` item
 		where item.has_variants = 0 {0}
 	""".format(brand, from_date, to_date), as_dict=1)

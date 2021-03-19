@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.utils import flt
-from frappe.utils.nestedset import get_descendants_of
 
 def execute(filters=None):
 	filters = frappe._dict(filters or {})
@@ -141,7 +140,8 @@ def get_columns(filters):
 			"label": _("New price with discounts"),
 			"options": "Currency",
 			"fieldname": "new_price_discounts",
-			"width": 100
+			"width": 100,
+			"editable": True
 		},
 		{
 			"label": _("New price with discounts and promo codes"),
@@ -405,6 +405,7 @@ def get_wb_price_details(filters):
 	conditions_sle = get_conditions_sle(filters)
 	conditions_wb_sales = get_conditions_wb_sales(filters)
 	conditions_wbp = get_conditions_wbp(filters)
+	warehouse = "%s" %frappe.db.escape(filters.warehouse)
 
 	return frappe.db.sql("""
 		SELECT
@@ -417,18 +418,17 @@ def get_wb_price_details(filters):
 			IFNULL((SELECT sle.valuation_rate
 				FROM `tabStock Ledger Entry` sle
 				WHERE sle.item_code = (select parent from `tabItem Barcode` where barcode = wbp.last_barcode)
-				AND sle.creation = (SELECT max(creation) FROM `tabStock Ledger Entry` sle 
-				WHERE sle.item_code = (select parent from `tabItem Barcode` where barcode = wbp.last_barcode))
-				AND sle.modified = (SELECT max(modified) FROM `tabStock Ledger Entry` sle 
-				WHERE sle.item_code = (select parent from `tabItem Barcode` where barcode = wbp.last_barcode)) {0}), 0) valuation_rate,
+				AND warehouse = {3}
+				order by posting_date desc, posting_time desc, name desc limit 1), 0) valuation_rate,
 			IFNULL((SELECT SUM(wb_sales.quantity)
                 FROM `tabWB Sales` wb_sales
                 WHERE wb_sales.supplier_article = wbp.supplier_article {1}), 0) wb_sales_qty,
-            IFNULL((SELECT SUM(wb_stocks.quantity)
+            IFNULL((SELECT wb_stocks.quantity
                 FROM `tabWB Stocks` wb_stocks
-                WHERE wb_stocks.supplier_article = wbp.supplier_article), 0) wb_stocks_qty
+                WHERE wb_stocks.supplier_article = wbp.supplier_article
+				order by last_change_date_and_time desc, name desc limit 1), 0) wb_stocks_qty
 		FROM
 			`tabWB Price` wbp
 		WHERE
 			wbp.remainder_goods >= 0 {2}
-	""".format(conditions_sle, conditions_wb_sales, conditions_wbp), as_dict=1)
+	""".format(conditions_sle, conditions_wb_sales, conditions_wbp, warehouse), as_dict=1)

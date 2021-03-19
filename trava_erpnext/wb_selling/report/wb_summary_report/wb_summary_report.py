@@ -13,7 +13,6 @@ def execute(filters=None):
 
 class Analytics(object):
 	def __init__(self, filters=None):
-		print('filters:', filters)
 		self.filters = frappe._dict(filters or {})
 		self.validate_filters()
 		self.date_field = 'transaction_date' \
@@ -22,9 +21,7 @@ class Analytics(object):
 		self.get_period_date_ranges()
 
 	def run(self):
-		print('RUN')
 		self.get_columns()
-		print(self)
 		self.get_data()
 		self.get_chart_data()
 
@@ -105,10 +102,20 @@ class Analytics(object):
 			to_date = "'%s'" %date[1]
 
 			entries_sales = frappe.db.sql("""
-				select IFNULL(sum(wb_sas.retail_price_withdisc_rub), 0) as sales_amount, 
+				select IFNULL(sum(wb_sas.retail_amount), 0) as sales_amount, 
 				IFNULL(sum(wb_sas.retail_commission), 0) as amount_commission_wb
 				from `tabWB Sales by Sales` wb_sas
 				where wb_sas.supplier_oper_name = "Продажа" and wb_sas.sale_dt between {1} and {2} {0}
+			"""
+			.format(conditions_sales, from_date, to_date), as_dict=1)
+
+			refund = frappe.db.sql("""
+				select IFNULL(sum(wb_sas.retail_amount), 0) as sales_amount, 
+				IFNULL(sum(wb_sas.retail_commission), 0) as amount_commission_wb,
+				IFNULL(sum(wb_sas.for_pay), 0) as supplier_remuneration,
+				IFNULL(sum(wb_sas.quantity), 0) total_qty
+				from `tabWB Sales by Sales` wb_sas
+				where wb_sas.supplier_oper_name = "Возврат" and wb_sas.sale_dt between {1} and {2} {0}
 			"""
 			.format(conditions_sales, from_date, to_date), as_dict=1)
 
@@ -134,11 +141,10 @@ class Analytics(object):
 			.format(conditions_sales, from_date, to_date), as_dict=1)
 
 			purchases = frappe.db.sql("""
-				select sum((select IFNULL(avg(sle.valuation_rate), 0)
+				select sum((select avg(sle.valuation_rate)
 					from `tabStock Ledger Entry` sle
 					where sle.item_code = (select parent from `tabItem Barcode` where barcode = wb_sas.barcode)
-					and sle.creation between {2} and {3}
-					and sle.modified between {2} and {3} 
+					and sle.posting_date between {2} and {3}
 					and sle.warehouse = {0} and sle.company = {1})) amount_purchases
 				from `tabWB Sales by Sales` wb_sas
 				where wb_sas.supplier_oper_name = "Продажа" and wb_sas.sale_dt between {2} and {3} {4}
@@ -146,7 +152,18 @@ class Analytics(object):
 			.format(warehouse, company, from_date, to_date, conditions_sales), as_dict=1)
 
 			if purchases[0]["amount_purchases"] == None:
-				purchases[0]["amount_purchases"] = 0.0
+				purchases = frappe.db.sql("""
+					select sum((select IFNULL(avg(sle.valuation_rate), 0)
+						from `tabStock Ledger Entry` sle
+						where sle.item_code = (select parent from `tabItem Barcode` where barcode = wb_sas.barcode)
+						and sle.posting_date < {3}
+						and sle.warehouse = {0} and sle.company = {1})) amount_purchases
+					from `tabWB Sales by Sales` wb_sas
+					where wb_sas.supplier_oper_name = "Продажа" and wb_sas.sale_dt between {2} and {3} {4}
+				"""
+				.format(warehouse, company, from_date, to_date, conditions_sales), as_dict=1)
+
+			purchases[0]["amount_purchases"] = flt(purchases[0]["amount_purchases"])
 
 			if self.filters.warehouse_storage:
 				storage = frappe.db.sql("""
@@ -183,6 +200,12 @@ class Analytics(object):
 				.format(conditions_sales, from_date, to_date, city, value), as_dict=1)
 
 				all_city.extend(city_qty)
+
+			entries_sales[0]['sales_amount'] = entries_sales[0]['sales_amount'] - refund[0]['sales_amount']
+			entries_sales[0]['amount_commission_wb'] = entries_sales[0]['amount_commission_wb'] - refund[0]['amount_commission_wb']
+			supplier_remuneration[0]['supplier_remuneration'] = (supplier_remuneration[0]['supplier_remuneration'] - refund[0]['supplier_remuneration']
+				- logistics[0]['amount_logistics'] - storage[0]['cost_storage'])
+			total_qty[0]['total_qty'] = total_qty[0]['total_qty'] - refund[0]['total_qty']
 
 			calculated_supplier_remuneration = (entries_sales[0]['sales_amount'] - entries_sales[0]['amount_commission_wb'] 
 				- logistics[0]['amount_logistics'] - storage[0]['cost_storage'])

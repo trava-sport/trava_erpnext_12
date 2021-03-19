@@ -103,13 +103,13 @@ def get_columns(filters):
 		},
 		{
 			"label": _("Commission percent WB"),
-			"options": "Int",
+			"options": "Float",
 			"fieldname": "commission_percent",
 			"width": 100
 		},
 		{
 			"label": _("To transfer to the supplier"),
-			"options": "Int",
+			"options": "Float",
 			"fieldname": "for_pay",
 			"width": 100
 		},
@@ -121,13 +121,13 @@ def get_columns(filters):
 		},
 		{
 			"label": _("Purchase price"),
-			"fieldtype": "Int",
+			"fieldtype": "Float",
 			"fieldname": "amount_purchases",
 			"width": 100
 		},
 		{
 			"label": _("Net profit"),
-			"fieldtype": "Int",
+			"fieldtype": "Float",
 			"fieldname": "net_profit",
 			"width": 100
 		},
@@ -152,14 +152,15 @@ def get_data(filters):
 
 	wb_price_records = get_wb_price_details(filters)
 	wb_logistics = get_wb_logistics(filters)
-	wb_storage = get_wb_storage(filters)
+	#wb_storage = get_wb_storage(filters)
 
 	records_length = len(wb_price_records)
 	average_cost_delivery = wb_logistics[0]["amount_logistics"] / records_length
-	average_cost_storage = wb_storage[0]["cost_storage"] / records_length
+	#average_cost_storage = wb_storage[0]["cost_storage"] / records_length
 
 	for record in wb_price_records:
-		amount_purchases = record.amount_purchases - average_cost_delivery - average_cost_storage
+		#amount_purchases = record.amount_purchases - average_cost_delivery - average_cost_storage
+		amount_purchases = get_amount_purchases(filters, record) + average_cost_delivery
 		net_profit = record.for_pay - amount_purchases
 		
 
@@ -224,12 +225,6 @@ def get_wb_price_details(filters):
 			wb_sas.sale_percent, wb_sas.retail_price_withdisc_rub, wb_sas.retail_commission,
 			wb_sas.product_discount_for_report, wb_sas.supplier_promo, wb_sas.supplier_spp,
 			wb_sas.commission_percent, wb_sas.for_pay, wb_sas.sale_dt,
-			(select IFNULL(avg(sle.valuation_rate), 0)
-				from `tabStock Ledger Entry` sle
-				where sle.item_code = (select parent from `tabItem Barcode` where barcode = wb_sas.barcode)
-				and sle.creation between {2} and {3}
-				and sle.modified between {2} and {3} 
-				and sle.warehouse = {0} and sle.company = {1}) amount_purchases,
 			IFNULL((select item.item_code
                 FROM `tabItem` item
                 WHERE item.item_code = (select parent from `tabItem Barcode` where barcode = wb_sas.barcode)), 0) item_code,
@@ -241,6 +236,32 @@ def get_wb_price_details(filters):
 		WHERE
 			wb_sas.supplier_oper_name = "Продажа" and wb_sas.sale_dt between {2} and {3} {4}
 	""".format(warehouse, company, from_date, to_date, conditions_sales), as_dict=1)
+
+def get_amount_purchases(filters, record):
+	from_date = "'%s'" %filters.from_date
+	to_date = "'%s'" %filters.to_date
+	warehouse = "%s" %frappe.db.escape(filters.warehouse)
+	company = "%s" %frappe.db.escape(filters.company)
+	item_code = "%s" %frappe.db.escape(record.item_code)
+
+	average_valuation_rate = frappe.db.sql("""
+		select avg(sle.valuation_rate) valuation_rate
+		from `tabStock Ledger Entry` sle
+		where sle.item_code = {4}
+			and sle.posting_date between {2} and {3}
+			and sle.warehouse = {0} and sle.company = {1}
+	""".format(warehouse, company, from_date, to_date, item_code), as_dict=1)
+
+	if average_valuation_rate[0]['valuation_rate'] == None:
+		average_valuation_rate = frappe.db.sql("""
+		select IFNULL(avg(sle.valuation_rate), 0) valuation_rate
+		from `tabStock Ledger Entry` sle
+		where sle.item_code = {3}
+			and sle.posting_date < {2}
+			and sle.warehouse = {0} and sle.company = {1}
+		""".format(warehouse, company, to_date, item_code), as_dict=1)
+	
+	return flt(average_valuation_rate[0]['valuation_rate'])
 
 def get_wb_logistics(filters):
 	conditions_sales = get_conditions_sales(filters)

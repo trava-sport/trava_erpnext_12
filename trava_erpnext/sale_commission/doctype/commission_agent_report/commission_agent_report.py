@@ -389,7 +389,7 @@ def schedule_create_report_commission_from_wb_sbs():
 
 def create_report_commission_from_wb_sbs(date_from, date_to):
 
-	items = get_report_items(date_from)
+	items = get_report_items(date_from, date_to)
 
 	car = frappe.get_doc({
 				"doctype": "Commission Agent Report",
@@ -440,10 +440,11 @@ def identify_item_code(data):
 
 	return item_data
 
-def get_report_items(date_from):
+def get_report_items(date_from, date_to):
 	final_report_items = []
 	date = []
-	for i in range(7):
+	number_days = int(str(date_to - date_from + timedelta(days=1)).split()[0])
+	for i in range(number_days):
 		date.append(date_from)
 		date_from += timedelta(days=1)
 

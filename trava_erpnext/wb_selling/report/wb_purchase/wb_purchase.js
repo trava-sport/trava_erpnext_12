@@ -8,7 +8,7 @@ frappe.query_reports["WB Purchase"] = {
 			"fieldname":"brand",
 			"label": __("Brand"),
 			"fieldtype": "Link",
-			"options": "Brand",
+			"options": "Brand"
 		},
 		{
 			"label": __("Days until next purchase"),

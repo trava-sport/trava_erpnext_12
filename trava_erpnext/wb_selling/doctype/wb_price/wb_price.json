@@ -1,5 +1,4 @@
 {
- "actions": [],
  "creation": "2021-01-08 03:11:07.600237",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -23,13 +22,14 @@
   "agreed_discount",
   "current_promo_code_discount",
   "new_promo_code_discount",
-  "current_price_discounts",
+  "current_price_discount",
   "current_price_disc_promo_code",
-  "new_price_discounts",
+  "new_price_discount",
   "new_price_disc_promo_code",
-  "standard_price",
+  "valuation_rate",
   "current_net_profit",
   "new_net_profit",
+  "desired_net_profit",
   "number_of_sales",
   "remains"
  ],
@@ -46,7 +46,6 @@
   {
    "fieldname": "subject",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Subject",
    "print_hide": 1,
    "read_only": 1,
@@ -55,7 +54,6 @@
   {
    "fieldname": "collection",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Collection",
    "print_hide": 1,
    "read_only": 1,
@@ -139,7 +137,6 @@
    "in_list_view": 1,
    "label": "New retail price (before discount)",
    "print_hide": 1,
-   "read_only": 1,
    "width": "100px"
   },
   {
@@ -188,28 +185,9 @@
    "width": "100px"
   },
   {
-   "fieldname": "current_price_discounts",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Current price with discounts",
-   "print_hide": 1,
-   "read_only": 1,
-   "width": "100px"
-  },
-  {
    "fieldname": "current_price_disc_promo_code",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "label": "Current price with discounts and promo codes",
-   "print_hide": 1,
-   "read_only": 1,
-   "width": "100px"
-  },
-  {
-   "fieldname": "new_price_discounts",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "New price with discounts",
    "print_hide": 1,
    "read_only": 1,
    "width": "100px"
@@ -217,17 +195,7 @@
   {
    "fieldname": "new_price_disc_promo_code",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "label": "New price with discounts and promo codes",
-   "print_hide": 1,
-   "read_only": 1,
-   "width": "100px"
-  },
-  {
-   "fieldname": "standard_price",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Cost",
    "print_hide": 1,
    "read_only": 1,
    "width": "100px"
@@ -244,7 +212,6 @@
   {
    "fieldname": "new_net_profit",
    "fieldtype": "Float",
-   "in_list_view": 1,
    "label": "New net profit",
    "print_hide": 1,
    "read_only": 1,
@@ -271,16 +238,45 @@
   {
    "fieldname": "turnover_rate",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Turnover rate",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "desired_net_profit",
+   "fieldtype": "Float",
+   "label": "Desired net profit",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Cost price",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "current_price_discount",
+   "fieldtype": "Int",
+   "label": "Current price with discounts",
+   "print_hide": 1,
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "new_price_discount",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "New price with discounts",
    "print_hide": 1,
    "read_only": 1,
    "width": "100px"
   }
  ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2021-01-16 15:07:03.446012",
+ "modified": "2021-03-19 14:10:44.310899",
  "modified_by": "Administrator",
  "module": "WB Selling",
  "name": "WB Price",
