@@ -53,11 +53,6 @@ frappe.ui.form.on('WB Settings', {
 				}
 			});
 		});
-		
-		frm.add_custom_button(__("Add / Edit Prices"), function() {
-			frappe.set_route("Report", "WB Price");
-		}, "fa fa-money");
-		
 	},
 
 	onload: function(frm) {

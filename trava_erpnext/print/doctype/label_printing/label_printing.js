@@ -3,8 +3,9 @@
 frappe.ui.form.on('Label Printing Item', {
 	item_code: function(frm,cdt,cdn) {
 		var row = locals[cdt][cdn];
-		frappe.db.get_value("Item", row.item_code, "item_name", (r) => {
+		frappe.db.get_value("Item", row.item_code, ['item_name', 'article'], (r) => {
 			row.item_name = r.item_name;
+			row.article = r.article;
 		});
 		refresh_field("item_name", cdn, "items");
 	}

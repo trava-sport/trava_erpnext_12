@@ -437,4 +437,5 @@ erpnext.accounts.SalesInvoiceController = trava_erpnext.selling.SellingCommissio
 	}
 });
 
+// for backward compatibility: combine new and previous states
 $.extend(cur_frm.cscript, new erpnext.accounts.SalesInvoiceController({frm: cur_frm}));

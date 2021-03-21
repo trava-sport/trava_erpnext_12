@@ -3,8 +3,17 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
+import frappe
 from frappe.model.document import Document
 
 class LabelPrinting(Document):
-	pass
+	def validate(self):
+		self.validate_item()
+
+	def validate_item(self):
+		for item in self.items:
+			data_item = frappe.db.get_value("Item", 
+					filters={"item_code":item.item_code}, fieldname=["item_name", "article"])
+
+			item.item_name = data_item[0]
+			item.article = data_item[1]

@@ -640,5 +640,4 @@ erpnext.selling.SalesOrderController = trava_erpnext.selling.SellingCommission.e
 		});
 	}
 });
-
 $.extend(cur_frm.cscript, new erpnext.selling.SalesOrderController({frm: cur_frm}));
