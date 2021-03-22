@@ -29,7 +29,7 @@ class WBPrice(Document):
 		except Exception:
 			frappe.throw(_("In the line with the value of the barcode %s, the ""subject"" field is not filled in." % self.last_barcode))
 
-		self.valuation_rate = self.get_valuation_rate()
+		self.get_valuation_rate()
 
 		if self.new_retail_price:
 			if self.desired_net_profit:
@@ -72,7 +72,10 @@ class WBPrice(Document):
 			order by posting_date desc, posting_time desc, name desc limit 1
 		""".format(barcode), as_dict=1)
 
-		return flt(valuation_rate[0]['valuation_rate'])
+		if not valuation_rate:
+			self.valuation_rate = 0
+		else:
+			self.valuation_rate = flt(valuation_rate[0]['valuation_rate'])
 
 	def calculation_retail_price_discounts(self, price, discount):
 		calculated_price = price - (price * (discount / 100))
@@ -102,21 +105,27 @@ class WBPrice(Document):
 		supplier_article = "%s" %frappe.db.escape(self.supplier_article)
 
 		number_sales = frappe.db.sql("""
-			SELECT IFNULL((SUM(wb_sales.quantity)), 0) wb_sales_qty
+			SELECT IFNULL(SUM(wb_sales.quantity), 0) wb_sales_qty
 			FROM `tabWB Sales` wb_sales
 			WHERE wb_sales.supplier_article = {0} {1}
 		""".format(supplier_article, conditions_wb_sales), as_dict=1)
 
-		self.number_sales = number_sales[0]['wb_sales_qty']
+		if not number_sales:
+			self.number_sales = 0
+		else:
+			self.number_sales = number_sales[0]['wb_sales_qty']
 
 	def validate_remains(self):
 		supplier_article = "%s" %frappe.db.escape(self.supplier_article)
 
 		remains = frappe.db.sql("""
-			SELECT IFNULL((wb_stocks.quantity), 0) wb_stocks_qty
+			SELECT IFNULL(wb_stocks.quantity, 0) wb_stocks_qty
 			FROM `tabWB Stocks` wb_stocks
 			WHERE wb_stocks.supplier_article = {0}
 			order by last_change_date_and_time desc, name desc limit 1
 		""".format(supplier_article), as_dict=1)
 
-		self.remains = remains[0]['wb_stocks_qty']
+		if not remains:
+			self.remains = 0
+		else:
+			self.remains = remains[0]['wb_stocks_qty']

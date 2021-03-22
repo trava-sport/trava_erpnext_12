@@ -160,10 +160,8 @@
   {
    "fieldname": "agreed_discount",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "label": "The agreed discount,%",
    "print_hide": 1,
-   "read_only": 1,
    "width": "100px"
   },
   {
@@ -178,10 +176,8 @@
   {
    "fieldname": "new_promo_code_discount",
    "fieldtype": "Int",
-   "in_list_view": 1,
    "label": "New promo code discount,%",
    "print_hide": 1,
-   "read_only": 1,
    "width": "100px"
   },
   {
@@ -276,8 +272,8 @@
    "width": "100px"
   }
  ],
- "modified": "2021-03-19 14:10:44.310899",
- "modified_by": "Administrator",
+ "modified": "2021-03-22 15:19:30.263608",
+ "modified_by": "belyerin@ya.ru",
  "module": "WB Selling",
  "name": "WB Price",
  "owner": "Administrator",
