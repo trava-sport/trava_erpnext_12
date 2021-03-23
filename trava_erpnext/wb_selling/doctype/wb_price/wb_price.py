@@ -87,16 +87,13 @@ class WBPrice(Document):
 
 		return net_profit
 
-	def get_conditions_wb_sales(filters):
+	def get_conditions_wb_sales(self):
 		to_date_sales = date.today()
 		thirty_one_days = timedelta(days=31)
 		from_date_sales = to_date_sales - thirty_one_days
 		conditions = ''
-		if filters.get('from_date_sales'):
-			conditions += "AND wb_sales.date >= '%s'" %from_date_sales
-
-		if filters.get('to_date_sales'):
-			conditions += "AND wb_sales.date <= '%s'" %to_date_sales
+		conditions += "AND wb_sales.date >= '%s'" %from_date_sales
+		conditions += "AND wb_sales.date <= '%s'" %to_date_sales
 
 		return conditions
 
@@ -104,16 +101,16 @@ class WBPrice(Document):
 		conditions_wb_sales = self.get_conditions_wb_sales()
 		supplier_article = "%s" %frappe.db.escape(self.supplier_article)
 
-		number_sales = frappe.db.sql("""
+		number_of_sales = frappe.db.sql("""
 			SELECT IFNULL(SUM(wb_sales.quantity), 0) wb_sales_qty
 			FROM `tabWB Sales` wb_sales
 			WHERE wb_sales.supplier_article = {0} {1}
 		""".format(supplier_article, conditions_wb_sales), as_dict=1)
 
-		if not number_sales:
-			self.number_sales = 0
+		if not number_of_sales:
+			self.number_of_sales = 0
 		else:
-			self.number_sales = number_sales[0]['wb_sales_qty']
+			self.number_of_sales = number_of_sales[0]['wb_sales_qty']
 
 	def validate_remains(self):
 		supplier_article = "%s" %frappe.db.escape(self.supplier_article)
