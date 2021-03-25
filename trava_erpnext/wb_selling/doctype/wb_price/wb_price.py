@@ -55,6 +55,43 @@ class WBPrice(Document):
 			self.new_net_profit = self.calculation_net_profit(self.new_price_disc_promo_code, self.valuation_rate,
 				existing_subject_delivery_cost, existing_subject_remuneration)
 
+			#Вычесляем новую розничную цену за вычитом скидки и промо кода и за вычитам дополнительной 10 процентной скидки для акциий
+			new_price_disc_promo_code = self.calculation_retail_price_discounts(self.new_price_disc_promo_code, 10)
+
+			self.new_net_profit_discount = self.calculation_net_profit(new_price_disc_promo_code, self.valuation_rate,
+				existing_subject_delivery_cost, existing_subject_remuneration)
+
+		else:
+			if self.desired_net_profit:
+				if self.new_promo_code_discount:
+					self.agreed_discount = 100 - ((((self.desired_net_profit + (existing_subject_delivery_cost * 2) + self.valuation_rate)
+						* 100 / (100 - existing_subject_remuneration)) * 100 / (100 - self.new_promo_code_discount)) 
+							* 100 / self.current_retail_price)
+				else:
+					self.agreed_discount = 100 - ((((self.desired_net_profit + (existing_subject_delivery_cost * 2) + self.valuation_rate)
+						* 100 / (100 - existing_subject_remuneration)) * 100 / (100 - self.current_promo_code_discount)) 
+							* 100 / self.current_retail_price)
+
+			if self.agreed_discount or self.new_promo_code_discount:
+				if self.agreed_discount:
+					self.new_price_discount = self.calculation_retail_price_discounts(self.current_retail_price, self.agreed_discount)
+				else:
+					self.new_price_discount = self.calculation_retail_price_discounts(self.current_retail_price, self.current_discount_site)
+
+				if self.new_promo_code_discount:
+					self.new_price_disc_promo_code = self.calculation_retail_price_discounts(self.new_price_discount, self.new_promo_code_discount)
+				else:
+					self.new_price_disc_promo_code = self.calculation_retail_price_discounts(self.new_price_discount, self.current_promo_code_discount)
+
+				self.new_net_profit = self.calculation_net_profit(self.new_price_disc_promo_code, self.valuation_rate,
+					existing_subject_delivery_cost, existing_subject_remuneration)
+
+				#Вычесляем новую розничную цену за вычитом скидки и промо кода и за вычитам дополнительной 10 процентной скидки для акциий
+				new_price_disc_promo_code = self.calculation_retail_price_discounts(self.new_price_disc_promo_code, 10)
+
+				self.new_net_profit_discount = self.calculation_net_profit(new_price_disc_promo_code, self.valuation_rate,
+					existing_subject_delivery_cost, existing_subject_remuneration)
+
 		self.current_price_discount = self.calculation_retail_price_discounts(self.current_retail_price, self.current_discount_site)
 		self.current_price_disc_promo_code = self.calculation_retail_price_discounts(self.current_price_discount, self.current_promo_code_discount)
 		self.current_net_profit = self.calculation_net_profit(self.current_price_disc_promo_code, 
