@@ -31,6 +31,9 @@ class WBPrice(Document):
 
 		self.get_valuation_rate()
 
+		if self.changing_promo_code:
+			self.new_promo_code_discount = self.current_promo_code_discount + self.changing_promo_code
+
 		if self.new_retail_price:
 			if self.desired_net_profit:
 				if self.new_promo_code_discount:
@@ -97,7 +100,6 @@ class WBPrice(Document):
 		self.current_net_profit = self.calculation_net_profit(self.current_price_disc_promo_code, 
 			self.valuation_rate, existing_subject_delivery_cost, existing_subject_remuneration)
 
-
 	def get_valuation_rate(self):
 		barcode = "%s" %frappe.db.escape(self.last_barcode)
 
@@ -134,6 +136,12 @@ class WBPrice(Document):
 
 		return conditions
 
+	def get_conditions_wb_stocks(self):
+		date_stock = date.today()
+		conditions = "AND wb_stocks.last_change_date = '%s'" %date_stock
+
+		return conditions
+
 	def validate_number_sales(self):
 		conditions_wb_sales = self.get_conditions_wb_sales()
 		supplier_article = "%s" %frappe.db.escape(self.supplier_article)
@@ -150,14 +158,14 @@ class WBPrice(Document):
 			self.number_of_sales = number_of_sales[0]['wb_sales_qty']
 
 	def validate_remains(self):
+		conditions_wb_stocks = self.get_conditions_wb_stocks()
 		supplier_article = "%s" %frappe.db.escape(self.supplier_article)
 
 		remains = frappe.db.sql("""
-			SELECT IFNULL(wb_stocks.quantity, 0) wb_stocks_qty
+			SELECT IFNULL(SUM(wb_stocks.quantity), 0) wb_stocks_qty
 			FROM `tabWB Stocks` wb_stocks
-			WHERE wb_stocks.supplier_article = {0}
-			order by last_change_date_and_time desc, name desc limit 1
-		""".format(supplier_article), as_dict=1)
+			WHERE wb_stocks.supplier_article = {0} {1}
+		""".format(supplier_article, conditions_wb_stocks), as_dict=1)
 
 		if not remains:
 			self.remains = 0

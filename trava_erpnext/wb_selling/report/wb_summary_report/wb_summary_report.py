@@ -140,6 +140,31 @@ class Analytics(object):
 			"""
 			.format(conditions_sales, from_date, to_date), as_dict=1)
 
+			purchases_refund = frappe.db.sql("""
+				select sum((select avg(sle.valuation_rate)
+					from `tabStock Ledger Entry` sle
+					where sle.item_code = (select parent from `tabItem Barcode` where barcode = wb_sas.barcode)
+					and sle.posting_date between {2} and {3}
+					and sle.warehouse = {0} and sle.company = {1})) amount_purchases
+				from `tabWB Sales by Sales` wb_sas
+				where wb_sas.supplier_oper_name = "Возврат" and wb_sas.sale_dt between {2} and {3} {4}
+			"""
+			.format(warehouse, company, from_date, to_date, conditions_sales), as_dict=1)
+
+			if purchases_refund[0]["amount_purchases"] == None:
+				purchases_refund = frappe.db.sql("""
+					select sum((select IFNULL(avg(sle.valuation_rate), 0)
+						from `tabStock Ledger Entry` sle
+						where sle.item_code = (select parent from `tabItem Barcode` where barcode = wb_sas.barcode)
+						and sle.posting_date < {3}
+						and sle.warehouse = {0} and sle.company = {1})) amount_purchases
+					from `tabWB Sales by Sales` wb_sas
+					where wb_sas.supplier_oper_name = "Возврат" and wb_sas.sale_dt between {2} and {3} {4}
+				"""
+				.format(warehouse, company, from_date, to_date, conditions_sales), as_dict=1)
+
+			purchases_refund[0]["amount_purchases"] = flt(purchases_refund[0]["amount_purchases"])
+
 			purchases = frappe.db.sql("""
 				select sum((select avg(sle.valuation_rate)
 					from `tabStock Ledger Entry` sle
@@ -163,7 +188,7 @@ class Analytics(object):
 				"""
 				.format(warehouse, company, from_date, to_date, conditions_sales), as_dict=1)
 
-			purchases[0]["amount_purchases"] = flt(purchases[0]["amount_purchases"])
+			purchases[0]["amount_purchases"] = flt(purchases[0]["amount_purchases"]) - purchases_refund[0]["amount_purchases"]
 
 			if self.filters.warehouse_storage:
 				storage = frappe.db.sql("""
@@ -198,6 +223,16 @@ class Analytics(object):
 					where wb_sas.supplier_oper_name = "Продажа" and wb_sas.office_name = {3} and wb_sas.sale_dt between {1} and {2} {0}
 				"""
 				.format(conditions_sales, from_date, to_date, city, value), as_dict=1)
+
+				city_qty_refund = frappe.db.sql("""
+					select sum(wb_sas.quantity) {4}
+					from `tabWB Sales by Sales` wb_sas
+					where wb_sas.supplier_oper_name = "Возврат" and wb_sas.office_name = {3} and wb_sas.sale_dt between {1} and {2} {0}
+				"""
+				.format(conditions_sales, from_date, to_date, city, value), as_dict=1)
+
+				if city_qty[0][value] and city_qty_refund[0][value]:
+					city_qty[0][value] = city_qty[0][value] - city_qty_refund[0][value]
 
 				all_city.extend(city_qty)
 
