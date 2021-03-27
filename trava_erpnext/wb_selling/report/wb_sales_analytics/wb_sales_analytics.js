@@ -2,27 +2,19 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["WB Summary Report"] = {
+frappe.query_reports["WB Sales Analytics"] = {
 	"filters": [
 		{
-			"fieldname":"warehouse",
-			"label": __("Warehouse"),
+			"fieldname":"brand",
+			"label": __("Brand"),
 			"fieldtype": "Link",
-			"options": "Warehouse",
-			"get_query": function() {
-				const company = frappe.query_report.get_filter_value('company');
-				return {
-					filters: { 'company': company }
-				}
-			},
-			"reqd": 1
+			"options": "Brand"
 		},
 		{
 			"fieldname":"subject",
 			"label": __("Subject"),
 			"fieldtype": "Link",
-			"options": "WB Subject",
-			"depends_on": "eval: doc.warehouse_storage != 1"
+			"options": "WB Subject"
 		},
 		{
 			"fieldname":"all_subject_except",
@@ -45,29 +37,6 @@ frappe.query_reports["WB Summary Report"] = {
 			reqd: 1
 		},
 		{
-			"fieldname":"brand",
-			"label": __("Brand"),
-			"fieldtype": "Link",
-			"options": "Brand",
-			"depends_on": "eval: doc.warehouse_storage != 1"
-		},
-		{
-			fieldname: "company",
-			label: __("Company"),
-			fieldtype: "Link",
-			options: "Company",
-			default: frappe.defaults.get_user_default("Company"),
-			reqd: 1
-		},
-		{
-			"fieldname":"customer",
-			"label": __("Customer"),
-			"fieldtype": "Link",
-			"options": "Customer",
-			"depends_on": "eval: doc.warehouse_storage == 1",
-			"mandatory_depends_on": "eval: doc.warehouse_storage == 1"
-		},
-		{
 			fieldname: "range",
 			label: __("Range"),
 			fieldtype: "Select",
@@ -79,34 +48,6 @@ frappe.query_reports["WB Summary Report"] = {
 			],
 			default: "Monthly",
 			reqd: 1
-		},
-		{
-			"fieldname": "warehouse_storage",
-			"label": __("Use the amount for warehouse storage from the Commission Agent Report)"),
-			"fieldtype": "Check",
-			"default": 0,
-			on_change: function() {
-				let filters = frappe.query_report.filters;
-				let warehouse_storage = frappe.query_report.get_filter_value('warehouse_storage');
-				let options = {
-					1: [{ "value": "Weekly", "label": __("Weekly") }],
-					0: [
-						{ "value": "Weekly", "label": __("Weekly") },
-						{ "value": "Monthly", "label": __("Monthly") },
-						{ "value": "Quarterly", "label": __("Quarterly") },
-						{ "value": "Yearly", "label": __("Yearly") }
-					]
-				}
-
-				filters.forEach(d => {
-					if (d.fieldname == "range") {
-						d.df.options = options[warehouse_storage];
-						d.set_input(d.df.options)
-					}
-				});
-
-				frappe.query_report.refresh();
-			}
 		}
 	],
 

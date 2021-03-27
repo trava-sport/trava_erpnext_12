@@ -76,6 +76,9 @@ class Analytics(object):
 		if self.filters.subject:
 			conditions += "and wb_sas.subject_name = %s" %frappe.db.escape(self.filters.subject)
 
+		if self.filters.all_subject_except:
+			conditions += "and wb_sas.subject_name != %s" %frappe.db.escape(self.filters.all_subject_except)
+
 		return conditions
 
 	def get_conditions_stock(self):
@@ -85,6 +88,9 @@ class Analytics(object):
 
 		if self.filters.subject:
 			conditions += "and wb_stock.subject = %s" %frappe.db.escape(self.filters.subject)
+
+		if self.filters.all_subject_except:
+			conditions += "and wb_stock.subject != %s" %frappe.db.escape(self.filters.all_subject_except)
 
 		return conditions
 
