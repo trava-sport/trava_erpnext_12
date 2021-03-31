@@ -200,7 +200,8 @@ class Analytics(object):
 				storage = frappe.db.sql("""
 					select IFNULL(sum(car.amount_storage), 0) as cost_storage
 					from `tabCommission Agent Report` car
-					where car.docstatus = 1 and car.agreement_type = 'Commission'
+					where car.docstatus = 1 
+					and car.agreement in (select name from `tabAgreement` where agreement_type = 'Commission')
 					and car.start_date between {0} and {1}   
 					and car.end_date between {0} and {1}
 					and car.company = {2} and car.customer = {3}

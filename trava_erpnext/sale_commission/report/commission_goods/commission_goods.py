@@ -180,14 +180,16 @@ def get_sales_order_details(filters):
                 LEFT JOIN `tabCommission Agent Report Item` car_item 
                 ON car.name = car_item.parent
                 WHERE car_item.item_code = so_item.item_code AND
-                car.docstatus = 1 AND car.agreement_type = 'Commission'
+                car.docstatus = 1 
+				AND car.agreement in (select name from `tabAgreement` where agreement_type = 'Commission')
 				AND so.docstatus = 1 {1}), 0) car_qty,
 			IFNULL((SELECT SUM(car_item.amount) - SUM(car_item.award)
                 FROM `tabCommission Agent Report` car
                 LEFT JOIN `tabCommission Agent Report Item` car_item 
                 ON car.name = car_item.parent
                 WHERE car_item.item_code = so_item.item_code AND
-                car.docstatus = 1 AND car.agreement_type = 'Commission'
+                car.docstatus = 1 AND 
+				car.agreement in (select name from `tabAgreement` where agreement_type = 'Commission')
 				AND so.docstatus = 1 {1}), 0) amount_principal,
             IFNULL((SELECT SUM(dn_item.qty)
                 FROM `tabDelivery Note` dn
@@ -195,14 +197,14 @@ def get_sales_order_details(filters):
                 ON dn.name = dn_item.parent
                 WHERE dn_item.item_code = so_item.item_code AND
                 dn.is_return = 1 AND dn.docstatus = 1 AND
-                dn.agreement_type = 'Commission'
+                dn.agreement in (select name from `tabAgreement` where agreement_type = 'Commission')
 				AND so.docstatus = 1 {2}), 0) dn_qty
 		FROM
 			`tabSales Order` so 
 			JOIN `tabSales Order Item` so_item
 			ON so.name = so_item.parent
 		WHERE
-			so.docstatus = 1 AND so.agreement_type = 'Commission' {0}
+			so.docstatus = 1 AND so.agreement in (select name from `tabAgreement` where agreement_type = 'Commission') {0}
 		GROUP BY
 			so_item.item_code
 	""".format(conditions_so, conditions_car, conditions_dn), as_dict=1)

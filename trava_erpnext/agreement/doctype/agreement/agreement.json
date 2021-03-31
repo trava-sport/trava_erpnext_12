@@ -1,5 +1,4 @@
 {
- "actions": [],
  "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2020-11-12 02:12:23.568177",
@@ -25,15 +24,11 @@
   {
    "fieldname": "customer_section",
    "fieldtype": "Section Break",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "options": "fa fa-user"
   },
   {
    "fieldname": "column_break0",
    "fieldtype": "Column Break",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "oldfieldtype": "Column Break",
    "width": "50%"
   },
@@ -43,8 +38,6 @@
    "fieldname": "title",
    "fieldtype": "Data",
    "hidden": 1,
-   "hide_days": 1,
-   "hide_seconds": 1,
    "label": "Title",
    "no_copy": 1,
    "print_hide": 1
@@ -52,8 +45,6 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_list_view": 1,
    "label": "Series",
    "no_copy": 1,
@@ -68,8 +59,6 @@
    "bold": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
@@ -86,8 +75,6 @@
    "fetch_from": "customer.customer_name",
    "fieldname": "customer_name",
    "fieldtype": "Data",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_global_search": 1,
    "label": "Customer Name",
    "read_only": 1
@@ -95,8 +82,6 @@
   {
    "fieldname": "agreement_type",
    "fieldtype": "Select",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_list_view": 1,
    "label": "Agreement Type",
    "oldfieldname": "order_type",
@@ -108,8 +93,6 @@
   {
    "fieldname": "column_break1",
    "fieldtype": "Column Break",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "oldfieldtype": "Column Break",
    "width": "50%"
   },
@@ -117,8 +100,6 @@
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "hidden": 1,
-   "hide_days": 1,
-   "hide_seconds": 1,
    "ignore_user_permissions": 1,
    "label": "Amended From",
    "no_copy": 1,
@@ -132,8 +113,6 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Company",
@@ -149,8 +128,6 @@
    "default": "Today",
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_standard_filter": 1,
    "label": "Start Date",
    "no_copy": 1,
@@ -163,8 +140,6 @@
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "hide_days": 1,
-   "hide_seconds": 1,
    "in_standard_filter": 1,
    "label": "End Date",
    "no_copy": 1,
@@ -175,8 +150,6 @@
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "hidden": 1,
-   "hide_days": 1,
-   "hide_seconds": 1,
    "ignore_user_permissions": 1,
    "label": "Amended From",
    "no_copy": 1,
@@ -189,17 +162,13 @@
   }
  ],
  "icon": "fa fa-file-text",
- "is_submittable": 1,
- "links": [],
- "modified": "2020-11-12 13:22:35.050624",
+ "modified": "2021-03-28 02:59:09.415819",
  "modified_by": "Administrator",
  "module": "Agreement",
  "name": "Agreement",
  "owner": "Administrator",
  "permissions": [
   {
-   "amend": 1,
-   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -208,12 +177,9 @@
    "report": 1,
    "role": "Sales User",
    "share": 1,
-   "submit": 1,
    "write": 1
   },
   {
-   "amend": 1,
-   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -225,12 +191,9 @@
    "role": "Sales Manager",
    "set_user_permissions": 1,
    "share": 1,
-   "submit": 1,
    "write": 1
   },
   {
-   "amend": 1,
-   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -239,7 +202,6 @@
    "report": 1,
    "role": "Maintenance User",
    "share": 1,
-   "submit": 1,
    "write": 1
   },
   {

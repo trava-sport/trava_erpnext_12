@@ -92,20 +92,20 @@ doctype_js = {
 # override_doctype_class = {
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
-override_doctype_class = {
- 	"Sales Invoice": "trava_erpnext.overrides.sales_invoice.CustomSalesInvoice",
-	"Packing Slip": "trava_erpnext.overrides.packing_slip.CustomPackingSlip"
- }
+# override_doctype_class = {
+#  	"Sales Invoice": "trava_erpnext.overrides.sales_invoice.CustomSalesInvoice",
+# 	"Packing Slip": "trava_erpnext.overrides.packing_slip.CustomPackingSlip"
+#  }
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"Sales Order": {
-#         "validate": "",
-#     },
-# }
+doc_events = {
+	"Sales Invoice": {
+		"before_insert": ["trava_erpnext.overrides.sales_invoice.build_my_thing"]
+	},
+}
 
 #"validate": "trava_erpnext.trava_erpnext.trava_integrations.doctype.wb_settings.sales_order.validate",
 
@@ -129,7 +129,7 @@ scheduler_events = {
 			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_settings.schedule_get_report_sales_by_sales",
 		],
 		"10 5 * * 2": [
-			"trava_erpnext.sale_commission.doctype.commission_agent_report.commission_agent_report.schedule_create_report_commission_from_wb_sbs",
+			"trava_erpnext.trava_integrations.doctype.wb_settings.wb_methods.schedule_create_report_commission_from_wb_sbs",
 		]
 	},
 # 	"all": [

@@ -1,6 +1,38 @@
 [
  {
   "default_value": null,
+  "doc_type": "Payment Entry",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "naming_series",
+  "modified": "2021-03-20 11:57:34.437440",
+  "name": "Payment Entry-naming_series-options",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "options",
+  "property_type": "Text",
+  "value": "ACC-PAY-.YYYY.-"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Item",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "barcodes",
+  "modified": "2021-03-20 18:58:09.920199",
+  "name": "Item-barcodes-in_standard_filter",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "in_standard_filter",
+  "property_type": "Check",
+  "value": "1"
+ },
+ {
+  "default_value": null,
   "doc_type": "Sales Order",
   "docstatus": 0,
   "doctype": "Property Setter",
