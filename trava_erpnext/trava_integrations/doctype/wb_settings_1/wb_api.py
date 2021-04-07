@@ -5,8 +5,6 @@
 # Based on http://code.google.com/p/amazon-mws-python
 # Extended to include finances object
 from __future__ import unicode_literals
-import frappe
-from frappe import _
 
 import urllib
 import hashlib
@@ -187,12 +185,16 @@ class MWS(object):
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 			preuri="https://suppliers-stats.wildberries.ru"
 			uri = "/api/v1/supplier/%s" % reportType
-			type = method
+			type='GET'
 
 			try:
 				response = request(type.lower(), preuri + uri, params=params)
 				
 				response.raise_for_status()
+				# When retrieving data from the response object,
+				# be aware that response.content returns the content in bytes while response.text calls
+				# response.content and converts it to unicode.
+				parsed_response = response.json()
 
 			except HTTPError as e:
 				error = MWSError(str(e))
@@ -202,34 +204,51 @@ class MWS(object):
 		else:
 			# Remove all keys with an empty value because
 			# Amazon's MWS does not allow such a thing.
-			headers = kwargs.get('headers')
-			preuri="https://content-suppliers.wildberries.ru"
-			uri = kwargs.get('uri')
-			data = json.dumps(kwargs.get('data'))
+			extra_data = remove_empty(extra_data)
+
+			params = {
+				'AWSAccessKeyId': self.access_key,
+				self.ACCOUNT_TYPE: self.account_id,
+				'SignatureVersion': '2',
+				'Timestamp': self.get_timestamp(),
+				'Version': self.version,
+				'SignatureMethod': 'HmacSHA256',
+			}
+			params.update(extra_data)
+			quote = urllib.quote if six.PY2 else urllib.parse.quote
+			request_description = '&'.join(['%s=%s' % (k, quote(params[k], safe='-_.~')) for k in sorted(params)])
+			signature = self.calc_signature(method, request_description)
+			url = '%s%s?%s&Signature=%s' % (self.domain, self.uri, request_description, quote(signature))
+			headers = {'User-Agent': 'python-amazon-mws/0.0.1 (Language=Python)'}
+			headers.update(kwargs.get('extra_headers', {}))
 
 			try:
 				# Some might wonder as to why i don't pass the params dict as the params argument to request.
 				# My answer is, here i have to get the url parsed string of params in order to sign it, so
 				# if i pass the params dict as params to request, request will repeat that step because it will need
 				# to convert the dict to a url parsed string, so why do it twice if i can just pass the full url :).
-				response = request(method, preuri + uri, data=data, headers=headers)
-				print(response.headers.get('Set-Cookie'))
+				response = request(method, url, data=kwargs.get('body', ''), headers=headers)
 				response.raise_for_status()
+				# When retrieving data from the response object,
+				# be aware that response.content returns the content in bytes while response.text calls
+				# response.content and converts it to unicode.
+				data = response.content
+
+				# I do not check the headers to decide which content structure to server simply because sometimes
+				# Amazon's MWS API returns XML error responses with "text/plain" as the Content-Type.
+				try:
+					parsed_response = DictWrapper(data, extra_data.get("Action") + "Result")
+				except XMLError:
+					parsed_response = DataWrapper(data, response.headers)
 
 			except HTTPError as e:
-				parsed_response = response.json()
-				if parsed_response['error'] == "invalid_phone_number":
-					frappe.throw(_("Не верный номер телефона. Телефон должен начинаться с семерки и пишется слитно."))
-				if parsed_response['error'] == "incorrect_code":
-					frappe.throw(_("Не верный код подтверждения."))
-				if parsed_response['error'] == "too_many_attempts":
-					frappe.throw(_("Слишком много попыток. Попробуйте позже."))
-				else:
-					error = MWSError(str(e))
-					error.response = e.response
-					raise error
-		
-		return response
+				error = MWSError(str(e))
+				error.response = e.response
+				raise error
+
+			# Store the response object in the parsed_response for quick access
+			parsed_response.response = response
+		return parsed_response
 
 	def get_service_status(self):
 		"""
@@ -673,18 +692,10 @@ class Finances(MWS):
 class WBReports(MWS):
 	""" WB Reports API """
 
+	ACCOUNT_TYPE = "Merchant"
+
+	## REPORTS ###
+
 	def get_report(self, reportType, dateFrom, dateTo=None, rrd_id=None, flag=None):
 		return self.make_request(type_request='report', reportType=reportType, dateFrom=dateFrom, 
 			dateTo=dateTo, flag=flag, rrd_id=rrd_id)
-
-class WBAuthentication(MWS):
-	""" WB authentication API """
-
-	def get_token(self, uri, headers, data=''):
-		return self.make_request(method="POST", data=data, uri=uri, headers=headers)
-
-class WBCreatProductCards(MWS):
-	""" WB creat product cards API """
-
-	def creat_product_cards(self, uri, headers, data=''):
-		return self.make_request(method="POST", data=data, uri=uri, headers=headers)

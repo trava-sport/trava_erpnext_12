@@ -1,7 +1,10 @@
-// Copyright (c) 2021, trava and contributors
+// Copyright (c) 2020, trava and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('WB Settings', {
+frappe.ui.form.on('WB Settings_1', {
+	// refresh: function(frm) {
+
+	// }
 	refresh: function(frm) {
 		var me = this;
 		frm.add_custom_button(__('Отчет склад'), function() {
@@ -17,55 +20,10 @@ frappe.ui.form.on('WB Settings', {
 				}
 			});
 		});
-		frm.add_custom_button(__('Аутентификация на ВБ'), function() {
+		frm.add_custom_button(__('Отчет склад 2'), function() {
 			console.log("rembo")
-			frappe.prompt([{
-				fieldtype: "Int",
-				label: __("Телефон"),
-				fieldname: "phone",
-				reqd: 1,
-				description: __('Номер должен начинаться с семерки и пишется слитно.'),
-				default: 7
-			}],
-			(data) => {
-				frm.call({
-					method: "trava_erpnext.trava_integrations.doctype.wb_settings.wb_report_methods.wb_authentication",
-					args: {
-						"value": data["phone"],
-						"type": "phone"
-					},
-					callback: function(r) {
-						frappe.prompt([{
-							fieldtype: "Int",
-							label: __("Код"),
-							fieldname: "code",
-							reqd: 1
-						}],
-						(data) => {
-							frm.call({
-								method: "trava_erpnext.trava_integrations.doctype.wb_settings.wb_report_methods.wb_authentication",
-								args: {
-									"value": data["code"],
-									"type": "code",
-									"out_token": r.message["token"]
-								},
-								callback: function(r) {
-									console.log("DDDDDDDDDDDDDDDDDDDDDHHHHHHHHHHHHHHHHHHHHHHH");
-									frappe.msgprint(__("Аутентификация успешна"));
-								}
-							})
-						},
-						'Введите проверочный код',
-						'Отправить')
-					}
-				})
-			},
-			'Введите номер телефона',
-			'Отправить')
-		});
-		frm.add_custom_button(__('Создать товар на ВБ'), function() {
 			frm.call({
-				method: "trava_erpnext.trava_integrations.doctype.wb_settings.wb_report_methods.creat_product_cards"
+				method: "trava_erpnext.trava_integrations.doctype.wb_settings_1.wb_settings_1.schedule_get_report_stocks"
 			});
 		});
 		frm.add_custom_button(__('Отчет Sales by Sales Monthly'), function() {

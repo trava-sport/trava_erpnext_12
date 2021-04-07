@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2021, trava and contributors
+# Copyright (c) 2020, trava and contributors
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
@@ -12,7 +12,7 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 from erpnext.erpnext_integrations.doctype.amazon_mws_settings.amazon_methods import get_orders
 from trava_erpnext.trava_integrations.doctype.wb_settings_1.wb_report_methods import get_report, create_report_commission_from_wb_sbs
 
-class WBSettings(Document):
+class WBSettings_1(Document):
 	def validate(self):
 		if self.enable_wb == 1:
 			self.enable_sync = 1

@@ -34,6 +34,7 @@ frappe.query_reports["WB Purchase"] = {
 	],
 
 	after_datatable_render: table_instance => {
+		$(table_instance.wrapper).find(".dt-row-0").find('data').click();
 		let data = table_instance.datamanager.data;
 		for (let row = 0; row < data.length; ++row) {
 			if (row % 2 == 0) continue;

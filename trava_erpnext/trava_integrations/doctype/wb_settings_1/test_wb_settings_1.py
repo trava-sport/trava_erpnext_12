@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2021, trava and Contributors
+# Copyright (c) 2020, trava and Contributors
 # See license.txt
 from __future__ import unicode_literals
 
 # import frappe
 import unittest
 
-class TestWBSalesbySalesMonthly(unittest.TestCase):
+class TestWBSettings_1(unittest.TestCase):
 	pass
