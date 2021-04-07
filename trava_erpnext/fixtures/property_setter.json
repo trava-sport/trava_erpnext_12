@@ -1457,22 +1457,6 @@
  },
  {
   "default_value": null,
-  "doc_type": "WB Sales by Sales Monthly",
-  "docstatus": 0,
-  "doctype": "Property Setter",
-  "doctype_or_field": "DocField",
-  "field_name": "barcode",
-  "modified": "2021-03-13 13:01:14.046009",
-  "name": "WB Sales by Sales Monthly-barcode-hidden",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
-  "property": "hidden",
-  "property_type": "Check",
-  "value": "0"
- },
- {
-  "default_value": null,
   "doc_type": "Clinical Procedure Item",
   "docstatus": 0,
   "doctype": "Property Setter",
